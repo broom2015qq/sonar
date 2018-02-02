@@ -20,6 +20,7 @@
 package org.sonar.java.rule;
 
 import com.google.common.collect.ImmutableList;
+import org.sonar.java.rule.checks.MyFirstCustomCheck;
 import org.sonar.java.rule.checks.namerules.*;
 import org.sonar.plugins.java.api.JavaCheck;
 
@@ -36,13 +37,9 @@ public final class RulesList {
 
   public static List<Class<? extends JavaCheck>> getJavaChecks() {
     return ImmutableList.<Class<? extends JavaCheck>>builder()
-            .add(UnderlineDollarNameCheck.class)
-            .add(UpperCameCaseCheck.class)
-            .add(LowerCameCaseCheck.class)
-            .add(ConstantNameCheck.class)
-            .add(AbstractClassNameCheck.class)
-            .add(ExceptionClassNameCheck.class)
-            .add(ArrayNameCheck.class)
+//            .add(ProjectJsonCheck.class)
+//            .add(AbstractClassNameCheck.class)
+            .add(ForceJavadoc.class)
       .build();
   }
 

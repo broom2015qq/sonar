@@ -22,16 +22,14 @@ public class AbstractClassNameCheck extends BaseTreeVisitor implements JavaFileS
     @Override
     public void scanFile(JavaFileScannerContext context) {
         this.context = context;
+        System.out.println("这里打印的是啥"+context.getFileKey());
         scan(context.getTree());
     }
 
     @Override
     public void visitClass(ClassTree tree) {
         String className = tree.simpleName().name();
-
         LOGGER.info(className + "<<>>" + tree.symbol().isAbstract());
-
-
         if(tree.symbol().isAbstract()){
             //判断名称是否以Abstract 或 Base 开头
 
@@ -58,39 +56,6 @@ public class AbstractClassNameCheck extends BaseTreeVisitor implements JavaFileS
             }
         }
 
-//        for(ModifierTree modifiersTree : tree.modifiers()){
-//            if(modifiersTree instanceof ModifierKeywordTree) {
-//                ModifierKeywordTree modifierKeywordTree = (ModifierKeywordTree) modifiersTree;
-//                String name = modifierKeywordTree.modifier().name();
-//                //判断是否为抽象类
-//                if ("ABSTRACT".equals(name)) {
-//                    //判断名称是否以Abstract 或 Base 开头
-//
-//                    String abName = "Abstract";
-//                    String bsName = "Base";
-//                    //判断类名如果小于Abstract 或 Base
-//                    if (className.length() < abName.length() || className.length() < bsName.length()) {
-//                        context.reportIssue(this, tree, "The Name Of Abstract Class should use Abstract or Base first");
-//                    } else {
-//                        //判断是否存在 Abstract 或 Base
-//                        if (!className.contains(abName)) {
-//                            if (!className.contains(bsName)) {
-//                                context.reportIssue(this, tree, "The Name Of Abstract Class should use Abstract or Base first");
-//                            } else {
-//                                if (className.indexOf(bsName) != 0) {
-//                                    context.reportIssue(this, tree, "The Name Of Abstract Class should use Abstract or Base first");
-//                                }
-//                            }
-//                        } else {
-//                            if (className.indexOf(abName) != 0) {
-//                                context.reportIssue(this, tree, "The Name Of Abstract Class should use Abstract or Base first");
-//                            }
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
         super.visitClass(tree);
     }
 

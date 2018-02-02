@@ -55,7 +55,8 @@ public class MyJavaFileCheckRegistrar implements CheckRegistrar {
             ConstantNameCheck.class,
             AbstractClassNameCheck.class,
             ExceptionClassNameCheck.class,
-            ArrayNameCheck.class
+            ArrayNameCheck.class,
+            ForceJavadoc.class
     };
   }
 

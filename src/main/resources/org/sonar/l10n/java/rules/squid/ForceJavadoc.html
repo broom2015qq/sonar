@@ -1,0 +1,18 @@
+<p>类、类属性、类方法的注释必须使用 Javadoc 规范，使用/**内容*/格式，不得使用 //xxx 方式</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+    //数据库类
+    public class AbstractMysql {
+    }
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    /**
+     * 注释检查
+     * 类、类属性、类方法的注释必须使用 Javadoc 规范，使用 /**内容/
+     * Created by broom2010 on 2018/1/22.
+     */
+    @Rule(key = "ForceJavadoc")
+    public class ForceJavadoc extends BaseTreeVisitor implements JavaFileScanner{
+    }
+</pre>

@@ -1,7 +1,5 @@
 package org.finger.java.rule.checks.namerules;
 
-/**
- * Created by huqingen on 2017/3/17.
- */
+//这个是一个抽象类
 public abstract class MyNameIsAbstract {// Noncompliant
 }
